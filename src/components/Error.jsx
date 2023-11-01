@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from '@emotion/styled'
 const Texto = styled.div`
   background-color: #B7322C;

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 import Error from "./Error";
 import useSelectMonedas from "../hooks/useSelectMonedas";
@@ -21,7 +22,7 @@ const InputSubmit = styled.input`
   }
 `;
 
-const Formulario = () => {
+const Formulario = ({ setMonedas }) => {
   const [criptos, setCriptos] = useState([]);
   const [error, setError] = useState(false);
   const [moneda, SelectMonedas] = useSelectMonedas("Elige tu Moneda", monedas);
@@ -51,13 +52,13 @@ const Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ moneda, criptomoneda });
+
     if ([moneda, criptomoneda].includes("")) {
       setError(true);
       return;
     }
-    setError(false)
-    
+    setError(false);
+    setMonedas({ moneda, criptomoneda });
   };
 
   return (
